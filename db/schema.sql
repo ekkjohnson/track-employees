@@ -12,4 +12,4 @@ CREATE TABLE role(
     salary DECIMAL(10,2),
     dept_id INT NOT NULL,
     FOREIGN KEY (dept_id) REFERENCES department(id)
-)
+);
