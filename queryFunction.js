@@ -3,14 +3,14 @@ const inquirer=require('inquirer')
 let startApp;
 function allDepts() {
     startApp=require('./db/index')
-    db.query('SELECT * FROM department', function (err, results) {
+    db.query('SELECT * FROM emp_dept', function (err, results) {
         console.log(results);
         startApp();
     });
 }
 function allRoles(){
     startApp=require('./db/index')
-    db.query('SELECT * FROM role', function (err, results) {
+    db.query('SELECT * FROM emp_role', function (err, results) {
         console.log(results);
         startApp();
     });

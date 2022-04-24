@@ -1,12 +1,12 @@
 CREATE DATABASE track_emp_db;
 USE track_emp_db;
 
-CREATE TABLE department(
+CREATE TABLE emp_dept(
     id  INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     dept_name VAHCHAR(30) NOT NULL
 );
 
-CREATE TABLE role(
+CREATE TABLE emp_role(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(30),
     salary DECIMAL(10,2),
@@ -19,5 +19,7 @@ CREATE Table employee(
   first_name VAHCHAR(30),
   last_name VAHCHAR(30),
   node_id INT NOT NULL,
-  manager_id INT NOT NULL
+  manager_id INT NOT NULL,
+  FOREIGN KEY (manager_id)
+REFERENCES employee(id)
 )
