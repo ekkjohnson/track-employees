@@ -1,10 +1,26 @@
 const db = require('./connection')
+const inquirer=require('inquirer')
+let startApp;
 function allDepts() {
+    startApp=require('./db/index')
     db.query('SELECT * FROM department', function (err, results) {
         console.log(results);
-        // startApp();
+        startApp();
     });
 }
+function allRoles(){
+    startApp=require('./db/index')
+    db.query('SELECT * FROM role', function (err, results) {
+        console.log(results);
+        startApp();
+    });
+}
+
+
+
+
+
+
 
 module.exports = {
     allDepts

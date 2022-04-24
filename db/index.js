@@ -14,7 +14,7 @@ const db = mysql.createConnection(
     },
     console.log(`Connected to the database.`)
 );
-const opt = ["ALL_DEPT", "ALL_ROLES"];
+const opt = ["View All Departments", "View All Roles", "View All Employees", "Add New Department", "Add New Role", "Add New Employee", "Update Employee Role"];
 function startApp() {
     inquirer.prompt([
         {
@@ -24,20 +24,34 @@ function startApp() {
             choices: opt
         }
     ])
-        .then((ans) => {
-            console.log(ans);
-            switch (ans.userview) {
-                case opt[0]:
-                    // queryFunctions.allDepts();
-                    allDepts();
-                    break;
+    .then ((answer) => {
+        console.log(answer);
+        switch (answer.options) {
+            case options[0]:
+                allDepts();
+                break;
+            case options[1]:
+                allRoles();
+                break;
+            case options[2]:
+                allEmps();
+                break;   
+            case options[3]:
+                addDept();
+                break;
+            case options[4]:
+                addRole();
+                break;
+            case options[5]:
+                addEmp();
+                break;
+            
 
-                default:
-                    break;
-            }
-        })
+        }
+    }) 
 }
 
+module.exports=startApp;
 startApp();
 
 // function allDepts() {
