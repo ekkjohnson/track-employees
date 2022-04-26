@@ -4,17 +4,17 @@ require('dotenv').config();
 // const queryFunctions = require('./queryFunctions')
 const { allDepts, allRoles, allEmps, addDept, addEmp, updateEmp, finish } = require('../queryFunction')
 // Connect to database
-const db = mysql.createConnection(
-    {
-        host: 'localhost',
-        // MySQL username,
-        user: 'root',
-        password: 'rootroot',
-        database: 'track_emp_db'
-    },
-    console.log(`Connected to the database.`)
-);
-const opt = ["View All Departments", "View All Roles", "View All Employees", "Add New Department", "Add New Role", "Add New Employee", "Update Employee Role"];
+// const db = mysql.createConnection(
+//     {
+//         host: 'localhost',
+//         // MySQL username,
+//         user: 'root',
+//         password: 'rootroot',
+//         database: 'track_emp_db'
+//     },
+//     console.log(`Connected to the database.`)
+// );
+const opt = ["View All Departments", "View All Roles", "View All Employees", "Add New Department", "Add New Role", "Add New Employee", "Update Employee Role", "Finish"];
 function startApp() {
     inquirer.prompt([
         {
