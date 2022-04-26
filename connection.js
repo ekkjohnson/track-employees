@@ -4,8 +4,8 @@ const inquirer = require ('inquirer');
 const db=mysql.createConnection({
     host:'localhost',
     user:'root',
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
+    password: 'rootroot',
+    database: 'track_emp_db',
 },
 console.log('connected to the database')
 );

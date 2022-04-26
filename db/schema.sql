@@ -3,7 +3,7 @@ USE track_emp_db;
 
 CREATE TABLE emp_dept(
     id  INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    dept_name VAHCHAR(30) NOT NULL
+    dept_name VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE emp_role(
@@ -16,10 +16,10 @@ CREATE TABLE emp_role(
 
 CREATE Table employee(
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  first_name VAHCHAR(30),
-  last_name VAHCHAR(30),
+  first_name VARCHAR(30),
+  last_name VARCHAR(30),
   node_id INT NOT NULL,
   manager_id INT NOT NULL,
   FOREIGN KEY (manager_id)
 REFERENCES employee(id)
-)
+);
