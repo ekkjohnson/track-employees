@@ -11,15 +11,17 @@ CREATE TABLE emp_role(
     title VARCHAR(30),
     salary DECIMAL(10,2),
     dept_id INT NOT NULL,
-    FOREIGN KEY (dept_id) REFERENCES department(id)
+    FOREIGN KEY (dept_id) REFERENCES emp_dept(id)
 );
 
-CREATE Table employee(
+CREATE Table employees(
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(30),
   last_name VARCHAR(30),
-  node_id INT NOT NULL,
-  manager_id INT NOT NULL,
-  FOREIGN KEY (manager_id)
-REFERENCES employee(id)
+  emp_role_id INT NOT NULL,
+  FOREIGN KEY (emp_role_id) 
+REFERENCES emp_role(id),
+manager_id INT,
+FOREIGN KEY (manager_id) 
+REFERENCES employees(id)
 );
