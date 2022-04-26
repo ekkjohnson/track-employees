@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 require('dotenv').config();
 // const queryFunctions = require('./queryFunctions')
-const { allDepts, allRoles, allEmps, addDept, addEmp, updateEmp, finish } = require('./queryFunctions')
+const { allDepts, allRoles, allEmps, addDept, addEmp, updateEmp, finish } = require('../queryFunction')
 // Connect to database
 const db = mysql.createConnection(
     {
@@ -19,8 +19,8 @@ function startApp() {
     inquirer.prompt([
         {
             type: "list",
-            name: "userview",
-            message: "What you want to see?",
+            name: "option menu",
+            message: "What option would you like to select?",
             choices: opt
         }
     ])
