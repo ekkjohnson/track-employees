@@ -32,29 +32,29 @@ function startApp() {
     ])
     .then ((answer) => {
         console.log(answer);
-        switch (answer.options) {
-            case options[0]:
+        switch (answer.opt) {
+            case opt[0]:
                 allDepts();
                 break;
-            case options[1]:
+            case opt[1]:
                 allRoles();
                 break;
-            case options[2]:
+            case opt[2]:
                 allEmps();
                 break;   
-            case options[3]:
+            case opt[3]:
                 addDept();
                 break;
-            case options[4]:
+            case opt[4]:
                 addRole();
                 break;
-            case options[5]:
+            case opt[5]:
                 addEmp();
                 break;
-                case options[6]:
+                case opt[6]:
                 updateEmp();
                 break;
-                case options[7]:
+                case opt[7]:
                 finish();
                 break;
             
