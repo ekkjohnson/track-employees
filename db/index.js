@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 require('dotenv').config();
 // const queryFunctions = require('./queryFunctions')
-const { allDepts } = require('./queryFunctions')
+const { allDepts, allRoles, allEmps, addDept, addEmp, updateEmp, finish } = require('./queryFunctions')
 // Connect to database
 const db = mysql.createConnection(
     {
@@ -43,6 +43,12 @@ function startApp() {
                 addRole();
                 break;
             case options[5]:
+                addEmp();
+                break;
+                case options[6]:
+                addEmp();
+                break;
+                case options[7]:
                 addEmp();
                 break;
             
