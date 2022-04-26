@@ -120,7 +120,12 @@ function updateEmp (){
     db.query ('Select = ? FROM employee')
 }
 
+function finish (){
+    console.log("Completed")
+    process.exit()
+}
+
 module.exports = {
-    allDepts, allRoles, allEmps, addDept, addRole, addEmp, updateEmp
+    allDepts, allRoles, allEmps, addDept, addRole, addEmp, updateEmp, finish
     // allDepts : allDepts
 }
