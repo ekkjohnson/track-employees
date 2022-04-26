@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ekkjohnson/track-employees#readme",
   "dependencies": {
+    "asciiart-logo": "^0.2.6",
     "dotenv": "^16.0.0",
     "inquirer": "^8.2.2",
     "mysql2": "^2.3.3"

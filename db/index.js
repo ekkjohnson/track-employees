@@ -7,7 +7,6 @@ require('dotenv').config();
 const { allDepts, allRoles, allEmps, addDept, addEmp, updateEmp, finish } = require('../queryFunction')
 db.connect(function(err){
     if (err) throw err
-    startApp()
 })
 // Connect to database
 // const db = mysql.createConnection(
@@ -25,14 +24,13 @@ function startApp() {
     inquirer.prompt([
         {
             type: "list",
-            name: "option menu",
+            name: "option_menu",
             message: "What option would you like to select?",
             choices: opt
         }
     ])
     .then ((answer) => {
-        console.log(answer);
-        switch (answer.opt) {
+        switch (answer.option_menu) {
             case opt[0]:
                 allDepts();
                 break;

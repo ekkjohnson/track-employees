@@ -1,26 +1,34 @@
 const db = require('./connection')
 const inquirer = require('inquirer')
+const logo = require("asciiart-logo");
+const logoText = logo({ name: "Employee Manager" }).render();
+
+console.log(logoText);
 
 let startApp;
 function allDepts() {
     startApp = require('./db/index')
-    db.query('SELECT * FROM emp_dept', function (err, results) {
-        console.log(results);
+   db.query('SELECT * FROM emp_dept', function (err, data) {
+        console.table(data);
         startApp();
+        // return data
+       
     });
+   
 }
 function allRoles() {
     startApp = require('./db/index')
-    db.query('SELECT * FROM emp_role', function (err, results) {
-        console.log(results);
+    db.query('SELECT * FROM emp_role', function (err, data) {
+        // console.log(data);
+        console.table(data);
         startApp();
     });
 }
 
 function allEmps() {
     startApp = require('./db/index')
-    db.query('SELECT * FROM employee', function (err, results) {
-        console.log(results);
+    db.query('SELECT * FROM employees', function (err, data) {
+        console.table(data);
         startApp();
     });
 }
@@ -68,7 +76,7 @@ function addRole() {
                 title: response.addTitle,
                 department_id: selectedDept.id
             })
-            console.log('Added new role')
+            console.table('Added new role')
             startApp();
         })
     })
@@ -98,7 +106,7 @@ function addEmp() {
                 type: 'choices',
                 name: "empManager",
                 message: "Who is your employees manager?",
-                choices: res.map(role => role.manager_id)
+                choices: res.map(role=>role.first_name + " " + role.last_name).slice(0,2)
             },
 
         ]).then(response => {
@@ -108,9 +116,9 @@ function addEmp() {
                 first_name: response.firstName,
                 last_name: response.lastName,
                 role_id: selectedTitle.id,
-                manager_id: selectedManager.id
+                manager_id: selectedManager.manager_id
             })
-            console.log('Added new employee')
+            console.table('Added new employee')
             startApp();
         })
     })
@@ -131,7 +139,7 @@ function updateEmp() {
 }
 
 function finish() {
-    console.log("Completed")
+    console.table("Completed")
     process.exit()
 }
 
