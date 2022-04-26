@@ -1,8 +1,14 @@
 // const mysql = require('mysql2');
 const inquirer = require('inquirer');
+const { start } = require('repl');
+const db = require('../connection');
 require('dotenv').config();
 // const queryFunctions = require('./queryFunctions')
 const { allDepts, allRoles, allEmps, addDept, addEmp, updateEmp, finish } = require('../queryFunction')
+db.connect(function(err){
+    if (err) throw err
+    startApp()
+})
 // Connect to database
 // const db = mysql.createConnection(
 //     {
@@ -46,10 +52,10 @@ function startApp() {
                 addEmp();
                 break;
                 case options[6]:
-                addEmp();
+                updateEmp();
                 break;
                 case options[7]:
-                addEmp();
+                finish();
                 break;
             
 
