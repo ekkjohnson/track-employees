@@ -20,8 +20,8 @@ CREATE Table employees(
   last_name VARCHAR(30),
   emp_role_id INT NOT NULL,
   FOREIGN KEY (emp_role_id) 
-REFERENCES emp_role(id),
-manager_id INT,
-FOREIGN KEY (manager_id) 
-REFERENCES employees(id)
+    REFERENCES emp_role(id),
+    manager_id INT,
+    FOREIGN KEY (manager_id) 
+    REFERENCES employees(id)
 );
